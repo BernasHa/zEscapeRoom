@@ -6,7 +6,8 @@ public class DoorScript : MonoBehaviour
 {
     public Animator door;
     public GameObject openCloseText;
-    public AudioSource doorSound;
+    public AudioSource doorOpenSound;
+    public AudioSource doorCloseSound;
 
     private bool inRange;
 
@@ -52,7 +53,7 @@ public class DoorScript : MonoBehaviour
         Debug.Log("Opened");
         door.SetBool("Open", true);
         door.SetBool("Close", false);
-        doorSound.Play();
+        doorOpenSound.Play();
     }
 
     void DoorClose()
