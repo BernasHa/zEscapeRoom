@@ -48,7 +48,6 @@ public class KeyCode : MonoBehaviour
         keyPad.SetActive(false);
         hud.SetActive(true);
         player.GetComponent<PlayerMovement>().enabled = true;
-        player.GetComponent<LookingController>().enabled = true;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.None;
     }
