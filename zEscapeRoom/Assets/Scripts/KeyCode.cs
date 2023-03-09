@@ -9,9 +9,9 @@ public class KeyCode : MonoBehaviour
     public GameObject keyPad;
     public GameObject hud;
     public GameObject animatedDoor;
-    public Animator ani;
+    public Animator anim;
     public Text textOB;
-    public string correctInput = "1111";
+    public string correctInput = "1007";
 
     public AudioSource buttonPress;
     public AudioSource correctCode;
@@ -30,7 +30,8 @@ public class KeyCode : MonoBehaviour
     {
         if (textOB.text == "Correct" && animated)
         {
-            ani.SetBool("Open", true);
+            anim.SetBool("Open", true);
+            CorrectCode();
         }
 
         if (keyPad.activeInHierarchy)
@@ -47,6 +48,8 @@ public class KeyCode : MonoBehaviour
         keyPad.SetActive(false);
         hud.SetActive(true);
         player.GetComponent<PlayerMovement>().enabled = true;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void Number(int number)
@@ -66,6 +69,7 @@ public class KeyCode : MonoBehaviour
         {
             textOB.text = "Correct";
             correctCode.Play();
+            anim.SetBool("Open", true);
         }
         else
         {
