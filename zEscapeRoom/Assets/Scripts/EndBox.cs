@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class EndBox : MonoBehaviour
 {
-    public GameManager gameManager;
+    public GameObject levelWonUI;
 
     private void OnTriggerEnter(Collider other)
     {
-        gameManager.GoalReached();
+        levelWonUI.SetActive(true);
     }
 }
